@@ -25,26 +25,30 @@ pod 'GhxNetWorking'
  
  * 网络请求
  * 方法一 继承 Network 请求公共写在一个类
-  NetWorkTool * netTool = [[NetWorkTool alloc] initWithSuccess:^(id obj) {
+ ```
+     NetWorkTool * netTool = [[NetWorkTool alloc] initWithSuccess:^(id obj) {
         NSLog(@"");
-    } fail:^(id obj) {
+           } fail:^(id obj) {
         NSLog(@"");
 
-    }];
+      }];
     [netTool login:@"五华社区" pwd:@"123456" isclassify:YES];
+ ```   
  * 方法二  直接使用 降低耦合度
-     NetWorkHelper * helper = [[NetWorkHelper alloc] init];
-    NSMutableDictionary * params = [NSMutableDictionary dictionaryWithCapacity:1];
-    [params setObject:@"五华社区" forKey:@"user"];
-    [params setObject:[helper md5:@"123456"] forKey:@"password"];
-    [params setObject:[NSString stringWithFormat:@"%d",1] forKey:@"isclassify"];
-    [helper requestURLString:@"url" parameters:params httpRequestType:RequestPost succeed:^(id responseObject) {
+ ```
+       NetWorkHelper * helper = [[NetWorkHelper alloc] init];
+       NSMutableDictionary * params = [NSMutableDictionary dictionaryWithCapacity:1];
+       [params setObject:@"五华社区" forKey:@"user"];
+       [params setObject:[helper md5:@"123456"] forKey:@"password"];
+       [params setObject:[NSString stringWithFormat:@"%d",1] forKey:@"isclassify"];
+       [helper requestURLString:@"url" parameters:params httpRequestType:RequestPost succeed:^(id responseObject) {
+       
+          NSLog(@"");
 
-        NSLog(@"");
-
-    } failure:^(NSError *error) {
-
-        NSLog(@"");
-
-    }];
+       } failure:^(NSError *error) {
+       
+         NSLog(@"");
+         
+       }];
+    ```
  
