@@ -10,7 +10,7 @@ pod 'GhxNetWorking'
 
 # 使用 
 ## 网络判断
-``object-C
+``
  [NetWorkHelper currentNetStatus:^(BOOL isConnect, AFNetworkReachabilityStatus currentStatus) {
  NSLog(@"");
  }];
