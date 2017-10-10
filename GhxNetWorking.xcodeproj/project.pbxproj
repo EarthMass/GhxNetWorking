@@ -7,15 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		130BE9C01F8C95A400F2278C /* NetWorkHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 130BE9BD1F8C95A400F2278C /* NetWorkHelper.m */; };
+		130BE9C11F8C95A400F2278C /* NetWorkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 130BE9BF1F8C95A400F2278C /* NetWorkTool.m */; };
 		1373283B1F8C94DC00A4BCD1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1373283A1F8C94DC00A4BCD1 /* main.m */; };
 		1373283E1F8C94DC00A4BCD1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1373283D1F8C94DC00A4BCD1 /* AppDelegate.m */; };
 		137328411F8C94DC00A4BCD1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 137328401F8C94DC00A4BCD1 /* ViewController.m */; };
 		137328441F8C94DC00A4BCD1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 137328421F8C94DC00A4BCD1 /* Main.storyboard */; };
 		137328461F8C94DC00A4BCD1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 137328451F8C94DC00A4BCD1 /* Assets.xcassets */; };
 		137328491F8C94DC00A4BCD1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 137328471F8C94DC00A4BCD1 /* LaunchScreen.storyboard */; };
+		CBF08FB0E3E943FCFD8B49F5 /* libPods-GhxNetWorking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4912E62766D85DCF25F0A3A2 /* libPods-GhxNetWorking.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		130BE9BB1F8C95A400F2278C /* Des.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Des.h; sourceTree = "<group>"; };
+		130BE9BC1F8C95A400F2278C /* NetWorkHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetWorkHelper.h; sourceTree = "<group>"; };
+		130BE9BD1F8C95A400F2278C /* NetWorkHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetWorkHelper.m; sourceTree = "<group>"; };
+		130BE9BE1F8C95A400F2278C /* NetWorkTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetWorkTool.h; sourceTree = "<group>"; };
+		130BE9BF1F8C95A400F2278C /* NetWorkTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetWorkTool.m; sourceTree = "<group>"; };
 		137328361F8C94DC00A4BCD1 /* GhxNetWorking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GhxNetWorking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1373283A1F8C94DC00A4BCD1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1373283C1F8C94DC00A4BCD1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -26,6 +34,9 @@
 		137328451F8C94DC00A4BCD1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		137328481F8C94DC00A4BCD1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1373284A1F8C94DC00A4BCD1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4912E62766D85DCF25F0A3A2 /* libPods-GhxNetWorking.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GhxNetWorking.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F47272A15EF847C93DDFAFA /* Pods-GhxNetWorking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GhxNetWorking.release.xcconfig"; path = "Pods/Target Support Files/Pods-GhxNetWorking/Pods-GhxNetWorking.release.xcconfig"; sourceTree = "<group>"; };
+		9C5F47C1A6B6E11FE85C8158 /* Pods-GhxNetWorking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GhxNetWorking.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GhxNetWorking/Pods-GhxNetWorking.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +44,32 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBF08FB0E3E943FCFD8B49F5 /* libPods-GhxNetWorking.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		130BE9BA1F8C95A400F2278C /* NetWorkHelper */ = {
+			isa = PBXGroup;
+			children = (
+				130BE9BB1F8C95A400F2278C /* Des.h */,
+				130BE9BC1F8C95A400F2278C /* NetWorkHelper.h */,
+				130BE9BD1F8C95A400F2278C /* NetWorkHelper.m */,
+				130BE9BE1F8C95A400F2278C /* NetWorkTool.h */,
+				130BE9BF1F8C95A400F2278C /* NetWorkTool.m */,
+			);
+			path = NetWorkHelper;
+			sourceTree = "<group>";
+		};
 		1373282D1F8C94DC00A4BCD1 = {
 			isa = PBXGroup;
 			children = (
 				137328381F8C94DC00A4BCD1 /* GhxNetWorking */,
 				137328371F8C94DC00A4BCD1 /* Products */,
+				14E1755F7855089F2DF8FAEC /* Pods */,
+				7858623C07881596AD5176B4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,6 +84,7 @@
 		137328381F8C94DC00A4BCD1 /* GhxNetWorking */ = {
 			isa = PBXGroup;
 			children = (
+				130BE9BA1F8C95A400F2278C /* NetWorkHelper */,
 				1373283C1F8C94DC00A4BCD1 /* AppDelegate.h */,
 				1373283D1F8C94DC00A4BCD1 /* AppDelegate.m */,
 				1373283F1F8C94DC00A4BCD1 /* ViewController.h */,
@@ -79,6 +106,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		14E1755F7855089F2DF8FAEC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9C5F47C1A6B6E11FE85C8158 /* Pods-GhxNetWorking.debug.xcconfig */,
+				8F47272A15EF847C93DDFAFA /* Pods-GhxNetWorking.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		7858623C07881596AD5176B4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4912E62766D85DCF25F0A3A2 /* libPods-GhxNetWorking.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -86,9 +130,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1373284D1F8C94DC00A4BCD1 /* Build configuration list for PBXNativeTarget "GhxNetWorking" */;
 			buildPhases = (
+				0F263F242B44D1E2B6E41D09 /* [CP] Check Pods Manifest.lock */,
 				137328321F8C94DC00A4BCD1 /* Sources */,
 				137328331F8C94DC00A4BCD1 /* Frameworks */,
 				137328341F8C94DC00A4BCD1 /* Resources */,
+				09F630076A6303FF2C7F38A1 /* [CP] Embed Pods Frameworks */,
+				16C48EA9EACC077A16A49A2F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -110,7 +157,7 @@
 				TargetAttributes = {
 					137328351F8C94DC00A4BCD1 = {
 						CreatedOnToolsVersion = 8.3.3;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -145,14 +192,67 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		09F630076A6303FF2C7F38A1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GhxNetWorking/Pods-GhxNetWorking-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		0F263F242B44D1E2B6E41D09 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GhxNetWorking-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		16C48EA9EACC077A16A49A2F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GhxNetWorking/Pods-GhxNetWorking-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		137328321F8C94DC00A4BCD1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				130BE9C01F8C95A400F2278C /* NetWorkHelper.m in Sources */,
 				137328411F8C94DC00A4BCD1 /* ViewController.m in Sources */,
 				1373283E1F8C94DC00A4BCD1 /* AppDelegate.m in Sources */,
 				1373283B1F8C94DC00A4BCD1 /* main.m in Sources */,
+				130BE9C11F8C95A400F2278C /* NetWorkTool.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,23 +372,31 @@
 		};
 		1373284E1F8C94DC00A4BCD1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9C5F47C1A6B6E11FE85C8158 /* Pods-GhxNetWorking.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = GhxNetWorking/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ghx.GhxNetWorking;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
 		1373284F1F8C94DC00A4BCD1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8F47272A15EF847C93DDFAFA /* Pods-GhxNetWorking.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = GhxNetWorking/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ghx.GhxNetWorking;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};
@@ -311,6 +419,7 @@
 				1373284F1F8C94DC00A4BCD1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
