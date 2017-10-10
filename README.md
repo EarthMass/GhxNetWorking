@@ -1,15 +1,15 @@
 # GhxNetWorking
 基于AFNetworking网络框架的封装
 
-#适用版本 ios 8.0 +
+# 适用版本 ios 8.0 +
 
-#pod
+# pod
 ``
 pod 'GhxNetWorking'
 ``
 
 # 使用 
-##网络判断
+## 网络判断
 ``object-C
  [NetWorkHelper currentNetStatus:^(BOOL isConnect, AFNetworkReachabilityStatus currentStatus) {
  NSLog(@"");
