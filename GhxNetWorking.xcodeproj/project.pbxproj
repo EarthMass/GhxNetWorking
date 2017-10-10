@@ -374,6 +374,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9C5F47C1A6B6E11FE85C8158 /* Pods-GhxNetWorking.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = GhxNetWorking/Info.plist;
@@ -389,6 +390,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8F47272A15EF847C93DDFAFA /* Pods-GhxNetWorking.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = GhxNetWorking/Info.plist;

@@ -8,8 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import <AFHTTPSessionManager.h>
+//#import <AFHTTPSessionManager.h>
 
+//#import "AFHTTPSessionManager.h"
+#import <AFNetworking/AFHTTPSessionManager.h>
 /**
  *  块的执行,请求返回数据接收
  */
