@@ -11,18 +11,22 @@ pod 'GhxNetWorking'
 # 使用 
 ## 网络判断
  * 网络判断
+ ```
  [NetWorkHelper currentNetStatus:^(BOOL isConnect, AFNetworkReachabilityStatus currentStatus) {
  NSLog(@"");
  }];
+ ```
  
  * 版本更新 通过 bundleid , so 不用修改什么配置
- //    [[NetWorkHelper sharedInstance] checkSystemIfNeedUpdate:^(BOOL isNeed, NSString *updateUrl, NSString *msg, NSDictionary *dic) {
- //        NSLog(@"");
- //    }];
- 
+ ```
+     [[NetWorkHelper sharedInstance] checkSystemIfNeedUpdate:^(BOOL isNeed, NSString *updateUrl, NSString *msg, NSDictionary *dic) {
+        NSLog(@"");
+    }];
+ ```
+ ```
  //block方法可以 再处理 比如，强制更新等
  [[NetWorkHelper sharedInstance] checkSystemIfNeedUpdate:nil];
- 
+ ```
  * 网络请求
  * 方法一 继承 Network 请求公共写在一个类
  ```
