@@ -21,19 +21,19 @@
  pch 中添加
  #import "NetWorkTool.h"
  */
-    NSMutableDictionary * params = [NSMutableDictionary dictionaryWithCapacity:1];
-    [params setObject:@"五华社区" forKey:@"user"];
-    [params setObject:[helper md5:@"123456"] forKey:@"password"];
-    [params setObject:[NSString stringWithFormat:@"%d",1] forKey:@"isclassify"];
-    [helper requestURLString:@"url" parameters:params httpRequestType:RequestPost succeed:^(id responseObject) {
-
-        NSLog(@"");
-
-    } failure:^(NSError *error) {
-
-        NSLog(@"");
-
-    }];
+//    NSMutableDictionary * params = [NSMutableDictionary dictionaryWithCapacity:1];
+//    [params setObject:@"五华社区" forKey:@"user"];
+//    [params setObject:[helper md5:@"123456"] forKey:@"password"];
+//    [params setObject:[NSString stringWithFormat:@"%d",1] forKey:@"isclassify"];
+//    [helper requestURLString:@"url" parameters:params httpRequestType:RequestPost succeed:^(id responseObject) {
+//
+//        NSLog(@"");
+//
+//    } failure:^(NSError *error) {
+//
+//        NSLog(@"");
+//
+//    }];
 
 
 
