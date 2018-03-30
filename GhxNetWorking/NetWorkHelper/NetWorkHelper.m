@@ -163,16 +163,16 @@
         return;
     }
     //地址进行UTF8转换，因为地址中可能包含中文
-    if ([[[UIDevice currentDevice] systemVersion] floatValue] > 9) {
-        NSCharacterSet *allowedCharacters = [[NSCharacterSet characterSetWithCharactersInString:URLString] invertedSet];
-         URLString = [URLString stringByAddingPercentEncodingWithAllowedCharacters:allowedCharacters];
-    } else {
+//    if ([[[UIDevice currentDevice] systemVersion] floatValue] > 9) {
+//        NSCharacterSet *allowedCharacters = [[NSCharacterSet characterSetWithCharactersInString:URLString] invertedSet];
+//         URLString = [URLString stringByAddingPercentEncodingWithAllowedCharacters:allowedCharacters];
+//    } else {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored"-Wdeprecated-declarations"
         URLString = [URLString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 #pragma clang diagnostic pop
         
-    }
+//    }
     
     //创建网络请求管理对象
     _manager = [AFHTTPSessionManager manager];
@@ -237,15 +237,15 @@
         return;
     }
     //地址进行UTF8转换，因为地址中可能包含中文
-    if ([[[UIDevice currentDevice] systemVersion] floatValue] > 9) {
-        NSCharacterSet *allowedCharacters = [[NSCharacterSet characterSetWithCharactersInString:URLString] invertedSet];
-        URLString = [URLString stringByAddingPercentEncodingWithAllowedCharacters:allowedCharacters];
-    } else {
+//    if ([[[UIDevice currentDevice] systemVersion] floatValue] > 9) {
+//        NSCharacterSet *allowedCharacters = [[NSCharacterSet characterSetWithCharactersInString:URLString] invertedSet];
+//        URLString = [URLString stringByAddingPercentEncodingWithAllowedCharacters:allowedCharacters];
+//    } else {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored"-Wdeprecated-declarations"
         URLString = [URLString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 #pragma clang diagnostic pop
-    }
+//    }
     
     //创建网络请求管理对象
     _manager = [AFHTTPSessionManager manager];
