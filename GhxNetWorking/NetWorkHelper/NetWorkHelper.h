@@ -61,10 +61,34 @@ typedef enum {
  */
 - (id)initWithSuccess:(OperateReturnSuccess)sucess fail:(OperateReturnFail)fail;
 
+
+/**
+ 请求 默认请求内容 放着body中
+
+ @param domainUrl 地址
+ @param methodName 地址补充
+ @param params 参数
+ @param postDataType post or get
+ */
 - (void)loadRequestWithDomainUrl:(NSString *)domainUrl
                       methodName:(NSString *)methodName
                           params:(NSMutableDictionary *)params
                     postDataType:(NetWorkRequestType)postDataType;
+
+
+/**
+ 请求
+ 
+ @param domainUrl 地址
+ @param methodName 地址补充
+ @param params 参数
+ @param postDataType post or get
+ @param paramInHead YES请求参数拼接在url后，NO 放着body中
+ */
+- (void)loadRequestWithDomainUrl:(NSString *)domainUrl
+                      methodName:(NSString *)methodName
+                          params:(NSMutableDictionary *)params
+                    postDataType:(NetWorkRequestType)postDataType paramInHead:(BOOL)paramInHead;
 
 
 #pragma mark- 请求返回处理可以通过 Block
@@ -77,7 +101,20 @@ typedef enum {
  @param succeedCallBack 成功回调
  @param failureCallBack 失败回调
  */
--(void)requestURLString:(NSString*)URLString parameters:(id)parameters httpRequestType:(NetWorkRequestType)type succeed:(void(^)(id responseObject))succeedCallBack failure:(void(^)(NSError *error))failureCallBack;
+-(void)requestURLString:(NSString*)URLString methodName:(NSString *)methodName parameters:(id)parameters httpRequestType:(NetWorkRequestType)type succeed:(void(^)(id responseObject))succeedCallBack failure:(void(^)(NSError *error))failureCallBack;
+
+
+/**
+ 无多媒体的请求
+ 
+ @param URLString 地址字符串
+ @param parameters 参数,可为空
+ @param type 请求类型GET/POST
+ @param succeedCallBack 成功回调
+ @param failureCallBack 失败回调
+ @param paramInHead YES请求参数拼接在url后，NO 放着body中
+ */
+-(void)requestURLString:(NSString*)URLString methodName:(NSString *)methodName parameters:(id)parameters httpRequestType:(NetWorkRequestType)type succeed:(void(^)(id responseObject))succeedCallBack failure:(void(^)(NSError *error))failureCallBack paramInHead:(BOOL)paramInHead;
 
 
 

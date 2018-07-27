@@ -84,6 +84,16 @@
                           params:(NSMutableDictionary *)params
                     postDataType:(NetWorkRequestType)postDataType
 {
+    [self loadRequestWithDomainUrl:domainUrl methodName:methodName params:params postDataType:postDataType paramInHead:NO];
+    
+}
+
+
+- (void)loadRequestWithDomainUrl:(NSString *)domainUrl
+                      methodName:(NSString *)methodName
+                          params:(NSMutableDictionary *)params
+                    postDataType:(NetWorkRequestType)postDataType paramInHead:(BOOL)paramInHead {
+    
     //判断网络
     /******/
     if (![self checkNetWorkPrivate]) {
@@ -103,32 +113,37 @@
     [_manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
     _manager.requestSerializer.timeoutInterval = 10.0f;
     [_manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
-
+    
+    if (paramInHead) {
+         _manager.requestSerializer.HTTPMethodsEncodingParametersInURI = [NSSet setWithArray:@[@"POST", @"GET", @"HEAD"]];
+    }
+   
+    
     NSString * requestUrl = nil;
     if (methodName) {
         requestUrl= [NSString stringWithFormat:@"%@%@",domainUrl,methodName];
     } else {
         requestUrl= [NSString stringWithFormat:@"%@",domainUrl];
     }
-
+    
     
     if (postDataType == RequestPost && postDataType == 0) {
-    
+        
         [_manager POST:requestUrl parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-
+            
             if (self.successBlock) {
                 self.successBlock(responseObject);
             }
             
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             [[_manager operationQueue] cancelAllOperations];
-
+            
             if (self.failBlock) {
                 self.failBlock(error);
             }
             
         }];
-
+        
         
     } else {
         
@@ -151,7 +166,13 @@
 #pragma mark ***************************************
 #pragma mark  每个请求独立，耦合低 begin
 #pragma mark  不带多媒体的请求
--(void)requestURLString:(NSString *)URLString parameters:(id)parameters httpRequestType:(NetWorkRequestType)type succeed:(void (^)(id))succeedCallBack failure:(void (^)(NSError *))failureCallBack{
+-(void)requestURLString:(NSString *)URLString methodName:(NSString *)methodName parameters:(id)parameters httpRequestType:(NetWorkRequestType)type succeed:(void (^)(id))succeedCallBack failure:(void (^)(NSError *))failureCallBack{
+    
+    [self requestURLString:URLString methodName:methodName parameters:parameters httpRequestType:type succeed:succeedCallBack failure:failureCallBack paramInHead:NO];
+    
+}
+
+-(void)requestURLString:(NSString*)URLString methodName:(NSString *)methodName parameters:(id)parameters httpRequestType:(NetWorkRequestType)type succeed:(void(^)(id responseObject))succeedCallBack failure:(void(^)(NSError *error))failureCallBack paramInHead:(BOOL)paramInHead {
     
     //判断网络
     if (![self checkNetWorkPrivate]) {
@@ -163,16 +184,24 @@
         return;
     }
     //地址进行UTF8转换，因为地址中可能包含中文
-//    if ([[[UIDevice currentDevice] systemVersion] floatValue] > 9) {
-//        NSCharacterSet *allowedCharacters = [[NSCharacterSet characterSetWithCharactersInString:URLString] invertedSet];
-//         URLString = [URLString stringByAddingPercentEncodingWithAllowedCharacters:allowedCharacters];
-//    } else {
+    //    if ([[[UIDevice currentDevice] systemVersion] floatValue] > 9) {
+    //        NSCharacterSet *allowedCharacters = [[NSCharacterSet characterSetWithCharactersInString:URLString] invertedSet];
+    //         URLString = [URLString stringByAddingPercentEncodingWithAllowedCharacters:allowedCharacters];
+    //    } else {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored"-Wdeprecated-declarations"
-        URLString = [URLString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    URLString = [URLString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 #pragma clang diagnostic pop
-        
-//    }
+    
+    //    }
+    
+    NSString * requestUrl = nil;
+    if (methodName) {
+        requestUrl= [NSString stringWithFormat:@"%@%@",URLString,methodName];
+    } else {
+        requestUrl= [NSString stringWithFormat:@"%@",URLString];
+    }
+ 
     
     //创建网络请求管理对象
     _manager = [AFHTTPSessionManager manager];
@@ -186,10 +215,16 @@
     _manager.responseSerializer = [AFJSONResponseSerializer serializer];
     //如果接受类型不一致时，替换为text／html等类型
     _manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/plain", @"multipart/form-data", @"application/json", @"text/html", @"image/jpeg", @"image/png", @"application/octet-stream", @"text/json",@"text/javascript", nil];
+    
+    
+    if (paramInHead) {
+        _manager.requestSerializer.HTTPMethodsEncodingParametersInURI = [NSSet setWithArray:@[@"POST", @"GET", @"HEAD"]];
+    }
+    
     switch (type) {
         case RequestGet:
         {
-            _task = [_manager GET:URLString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            _task = [_manager GET:requestUrl parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                 if (succeedCallBack) {
                     succeedCallBack(responseObject);
                 }
@@ -202,7 +237,7 @@
             break;
         case RequestPost:
         {
-            _task = [_manager POST:URLString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            _task = [_manager POST:requestUrl parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                 if (succeedCallBack) {
                     succeedCallBack(responseObject);
                 }
@@ -237,15 +272,15 @@
         return;
     }
     //地址进行UTF8转换，因为地址中可能包含中文
-//    if ([[[UIDevice currentDevice] systemVersion] floatValue] > 9) {
-//        NSCharacterSet *allowedCharacters = [[NSCharacterSet characterSetWithCharactersInString:URLString] invertedSet];
-//        URLString = [URLString stringByAddingPercentEncodingWithAllowedCharacters:allowedCharacters];
-//    } else {
+    //    if ([[[UIDevice currentDevice] systemVersion] floatValue] > 9) {
+    //        NSCharacterSet *allowedCharacters = [[NSCharacterSet characterSetWithCharactersInString:URLString] invertedSet];
+    //        URLString = [URLString stringByAddingPercentEncodingWithAllowedCharacters:allowedCharacters];
+    //    } else {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored"-Wdeprecated-declarations"
-        URLString = [URLString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    URLString = [URLString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 #pragma clang diagnostic pop
-//    }
+    //    }
     
     //创建网络请求管理对象
     _manager = [AFHTTPSessionManager manager];
@@ -299,7 +334,9 @@
         }
     }];
     
+    
 }
+
 
 
 #pragma mark  取消当前的请求
@@ -451,7 +488,7 @@
     NSString* urlString = [NSString stringWithFormat:@"http://itunes.apple.com/cn/lookup?bundleId=%@", bundleIdetifierString];
     
     
-    [self requestURLString:urlString parameters:nil httpRequestType:RequestGet succeed:^(id responseObject) {
+    [self requestURLString:urlString methodName:nil parameters:nil httpRequestType:RequestGet succeed:^(id responseObject) {
         
         if (![responseObject isKindOfClass:[NSDictionary class]]) {
             return ;

@@ -15,8 +15,8 @@ Pod::Spec.new do |s|
   #  summary should be tweet-length, and the description more in depth.
   #
 
-  s.name         = "GhxNetWorking"
-  s.version      = "1.0.2"
+  s.name         = "HXNetWorking"
+  s.version      = "1.0.3"
   s.summary      = " 基于AFNetworking网络框架的封装"
 
   # This description is used to generate tags and improve search results.
