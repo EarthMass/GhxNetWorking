@@ -5,7 +5,7 @@
 
 # pod
 ``
-pod 'GhxNetWorking'
+pod 'HXNetWorking'
 ``
 
 # 使用 
